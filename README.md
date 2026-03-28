@@ -1,9 +1,4 @@
-# Project Overview
-
-Welcome to the wiki of the MEDIator - Data Replication System project!
-
-Please visit the website to learn more - https://bitbucket.org/BMI/datareplicationsystem
-
+#  MEDIator - Data Replication System
 
 ## Setting the Environment Variables.
 Set the API_KEY, MASHAPE_AUTHORIZATION, and BASE_UR as environment variables.
@@ -124,7 +119,7 @@ Otherwise, you may directly upload the clinical files which were downloaded to y
 
 * Connect to the instance
 
-$ ssh -i pradeeban.pem ubuntu@ec2-54-237-35-248.compute-1.amazonaws.com
+$ ssh -i yourpemfile.pem username@aws-public-ip-address
 
 * Make a directory and change to the directory.
 
