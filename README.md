@@ -146,27 +146,14 @@ If you wish to reproduce the system in another deployment, please refer to docum
 
 
 ## Citing MEDIator
-The bibtex to cite MEDIator is the following:
-
-@misc{pradeeban_kathiravelu_2017_844842,
-  author       = {Pradeeban Kathiravelu and
-                  Ashish Sharma},
-  title        = {{MEDIator: A Data Sharing Synchronization Platform
-                   for Heterogeneous Medical Image Archives}},
-  month        = aug,
-  year         = 2017,
-  doi          = {10.5281/zenodo.844842},
-  url          = {https://doi.org/10.5281/zenodo.844842}
-}
 
 If you have used MEDIator in your research, please cite the below papers:
 
-[1] Kathiravelu, P. & Sharma, A. (2015). MEDIator: A Data Sharing Synchronization Platform for Heterogeneous Medical Image Archives.
+* Kathiravelu, P. & Sharma, A. (2015). **MEDIator: A Data Sharing Synchronization Platform for Heterogeneous Medical Image Archives.**
 In Workshop on Connected Health at Big Data Era (BigCHat'15), co-located with 21st ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD 2015).
 Aug. 2015. ACM. 6 pages. http://doi.org/10.13140/RG.2.1.3709.4248
 
-
-[2] Kathiravelu, P. & Sharma, A. (2016). SPREAD - System for Sharing and Publishing Research Data. In Society for Imaging
+* Kathiravelu, P. & Sharma, A. (2016). **SPREAD - System for Sharing and Publishing Research Data. In Society for Imaging**
 Informatics in Medicine Annual Meeting (SIIM 2016). June 2016.
 http://c.ymcdn.com/sites/siim.org/resource/resmgr/siim2016abstracts/Research_Kathiravelu.pdf
 
