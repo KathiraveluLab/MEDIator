@@ -31,13 +31,14 @@ Executing
 If you are hosting MEDIator for public access, you need to start it and expose its RESTful APIs. Execute the
 MEDIatorEngine class.
 
-$ java -classpath lib/repl-server-1.0-SNAPSHOT.jar:lib/*:conf/ edu.emory.bmi.datarepl.core.MEDIatorEngine
+    java -classpath lib/repl-server-1.0-SNAPSHOT.jar:lib/*:conf/ edu.emory.bmi.datarepl.core.MEDIatorEngine
 
-You may extend or leverage the exposed APIs. To begin with, you may consume the MEDIator RESTful APIs through a REST
-client such as the Postman plugin of the Chrome browser.
+You can extend or leverage the exposed APIs. To begin with, you may consume the MEDIator RESTful APIs through a REST
+client, such as the Postman plugin of the Chrome browser.
 
-To add more instances to the cluster, start the instances of Initiator class.
-$ java -classpath lib/repl-server-1.0-SNAPSHOT.jar:lib/*:conf/ edu.emory.bmi.datarepl.core.Initiator
+To add more instances to the cluster, start the instances of the Initiator class.
+
+    java -classpath lib/repl-server-1.0-SNAPSHOT.jar:lib/*:conf/ edu.emory.bmi.datarepl.core.Initiator
 
 The implementation of the RESTful invocations can be found at TciaReplicaSetManager.
 
@@ -78,7 +79,7 @@ This project depends on the below major projects.
 --------------------------
 Relevant classes can be found in the package: ds_mgmt.
 
-Data source management module manages the data sources themselves. 
+The data source management module manages the data sources themselves. 
 
 The relevant interfaces and implementations are often provided by the data sources or the data providers, and hence 
 orthogonal to MEDIator. However, a TCIA data source management RESTful interface and implementation are included.
@@ -88,7 +89,7 @@ orthogonal to MEDIator. However, a TCIA data source management RESTful interface
 --------------------------
 Relevant classes can be found in the package: rs_mgmt.
 
-Replicaset management module manages the replica sets pointing to each of the data sources.
+The replicaset management module manages the replica sets pointing to each of the data sources.
 
 ReplicaSetHandlers are implemented for each of the data sources that are federated by MEDIator. The ReplicaSetHandlers
 offer an internal implementation of the replica sets management.
@@ -98,14 +99,14 @@ of each of the data sources. There is a one-to-one mapping between the ReplicaSe
 data sources.
 
 TciaReplicaSetManager provides the REST API for managing the TCIA replica sets. Relevant documentation can be found in 
-the class as the method-level comments.
+The class has method-level comments.
 
 
 [3] Integrator
 ---------------
-Relevant classes can be found in the package: integrator.
+Relevant classes are in the integrator package.
 
-ReplicaSetsIntegrator is a singleton that manages integration of all the data sources for the replica set management.
+ReplicaSetsIntegrator is a singleton that manages the integration of all the data sources for the replica set management.
 
 Hence, ReplicaSetsIntegrator is a single entity that has a one-to-many relationship with the data sources of MEDIator
 for the replicaset management.
@@ -113,26 +114,26 @@ for the replicaset management.
 
 
 ## Connect to An EC2 Instance
-If you prefer to use an EC2 Instance to upload clinical files to S3, you may follow the below steps.
+If you prefer to use an EC2 Instance to upload clinical files to S3, you may follow the steps below.
 
-Otherwise, you may directly upload the clinical files which were downloaded to your local computer.
+Otherwise, you may directly upload the clinical files that were downloaded to your local computer.
 
 * Connect to the instance
-
-$ ssh -i yourpemfile.pem username@aws-public-ip-address
-
+```bash
+ssh -i yourpemfile.pem username@aws-public-ip-address
+```
 * Make a directory and change to the directory.
+```bash
+mkdir gsoc2014
 
-$ mkdir gsoc2014
-
-$ cd gsoc2014
-
+cd gsoc2014
+```
 * Download and extract the meta data from the online repository (link sent to email. Given below is an example).
+```bash
+nohup wget https://tcga-data.nci.nih.gov/tcgafiles/ftp_auth/distro_ftpusers/anonymous/userCreatedArchives/652ccf44-cfda-4e99-81ac-d8f4c0eca6be.tar > nohup.out &
 
-$ nohup wget https://tcga-data.nci.nih.gov/tcgafiles/ftp_auth/distro_ftpusers/anonymous/userCreatedArchives/652ccf44-cfda-4e99-81ac-d8f4c0eca6be.tar > nohup.out &
-
-$ tar -zxvf 652ccf44-cfda-4e99-81ac-d8f4c0eca6be.tar
-
+tar -zxvf 652ccf44-cfda-4e99-81ac-d8f4c0eca6be.tar
+```
 
 
 ## Further customizations
