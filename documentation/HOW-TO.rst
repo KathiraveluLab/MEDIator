@@ -9,18 +9,18 @@ Download the tar, extract them, and upload to S3.
 NOTE: The tar contains the associated “blob” that will be linked with the clinical data. The blob in itself does not have any metadata.
 
 * Meta data
-Place all the meta data files in the root folder of the data replication system source code.
+Place all the meta data files in the data/ folder of the data replication system source code.
 
 * Constants
 edu.emory.bmi.datarepl.constants package contains the constants to be modified.
 The class DataSourcesConstants contains the constants.
 
 Set the name of the CSV file that is used to load the CSV meta data into Infinispan.
-    public static final String META_CSV_FILE = "getAllDataAsCSV";
+    public static final String META_CSV_FILE = "data/getAllDataAsCSV";
 NOTE: This is the clinical data
 
 Also set the name of the file sample map of TCGA that is uploaded to S3. 
-    public static final String S3_META_CSV_FILE = "FILE_SAMPLE_MAP.txt";
+    public static final String S3_META_CSV_FILE = "data/FILE_SAMPLE_MAP.txt";
 NOTE: This is the mapping between the clinical data and the associated “blob” that was uploaded to S3
 
 

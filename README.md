@@ -60,6 +60,19 @@ Make sure to include log4j2-test.xml into your class path to be able to configur
 
 
 
+## Project Directory Structure
+
+The project has been restructured to keep the root directory clean and organized:
+
+* `modules/` - Core Java source code modules.
+* `webapp/` - Velocity templates and HTML files for the web application.
+* `data/` - Metadata files (such as `FILE_SAMPLE_MAP.txt` and `getAllDataAsCSV`).
+* `client/` - Python and other API client scripts.
+* `conf/` - JGroups, Infinispan, and logging configuration files.
+* `distribution/` - Maven assembly templates for packaging.
+* `documentation/` - Developer documentation and resources.
+
+
 ## Dependencies
 This project depends on the below major projects.
 

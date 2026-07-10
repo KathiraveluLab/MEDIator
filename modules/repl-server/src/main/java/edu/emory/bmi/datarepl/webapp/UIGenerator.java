@@ -39,7 +39,9 @@ public class UIGenerator {
 
     public static void init() {
         if (!initiated) {
-            velocityEngine.init();
+            java.util.Properties p = new java.util.Properties();
+            p.setProperty("file.resource.loader.path", "webapp");
+            velocityEngine.init(p);
             initiated = true;
         }
     }
@@ -191,11 +193,11 @@ public class UIGenerator {
 
         PrintWriter printWriter;
         try {
-            printWriter = new PrintWriter(outputFile, "UTF-8");
+            printWriter = new PrintWriter("webapp" + File.separator + outputFile, "UTF-8");
             printWriter.println(writer.toString());
             printWriter.close();
         } catch (FileNotFoundException e) {
-            logger.error("File, " + outputFile + ", could not be written", e);
+            logger.error("File, webapp" + File.separator + outputFile + ", could not be written", e);
         } catch (UnsupportedEncodingException e) {
             logger.error("Unsupported encoding", e);
         }

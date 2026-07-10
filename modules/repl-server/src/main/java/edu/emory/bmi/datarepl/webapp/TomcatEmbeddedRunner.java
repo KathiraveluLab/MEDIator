@@ -24,34 +24,34 @@ public class TomcatEmbeddedRunner {
 	public void startServer() throws LifecycleException {
 		Tomcat tomcat = new Tomcat();
 		tomcat.setPort(CommonConstants.EMBEDDED_TOMCAT_PORT);
-		File base = new File(System.getProperty("user.dir"));
+		File base = new File(System.getProperty("user.dir") + File.separator + "webapp");
 
         Context rootCtx = tomcat.addContext("/mediator", base.getAbsolutePath());
 
         /*Create Servlet Mappings*/
 		Tomcat.addServlet(rootCtx, "initServlet", new InitServlet());
-        rootCtx.addServletMapping("/init", "initServlet");
+        rootCtx.addServletMappingDecoded("/init", "initServlet");
 
 		Tomcat.addServlet(rootCtx, "createRsServlet", new CreateRsServlet());
-        rootCtx.addServletMapping("/createRs", "createRsServlet");
+        rootCtx.addServletMappingDecoded("/createRs", "createRsServlet");
 
 		Tomcat.addServlet(rootCtx, "appendRsServlet", new AppendRsServlet());
-        rootCtx.addServletMapping("/appendRs", "appendRsServlet");
+        rootCtx.addServletMappingDecoded("/appendRs", "appendRsServlet");
 
 		Tomcat.addServlet(rootCtx, "retrieveRsServlet", new RetrieveRsServlet());
-        rootCtx.addServletMapping("/retrieveRs", "retrieveRsServlet");
+        rootCtx.addServletMappingDecoded("/retrieveRs", "retrieveRsServlet");
 
         Tomcat.addServlet(rootCtx, "deleteRsServlet", new DeleteRsServlet());
-        rootCtx.addServletMapping("/deleteRs", "deleteRsServlet");
+        rootCtx.addServletMappingDecoded("/deleteRs", "deleteRsServlet");
 
         Tomcat.addServlet(rootCtx, "duplicateRsServlet", new DuplicateRsServlet());
-        rootCtx.addServletMapping("/duplicateRs", "duplicateRsServlet");
+        rootCtx.addServletMappingDecoded("/duplicateRs", "duplicateRsServlet");
 
         Tomcat.addServlet(rootCtx, "listRsServlet", new ListRsServlet());
-        rootCtx.addServletMapping("/listRs", "listRsServlet");
+        rootCtx.addServletMappingDecoded("/listRs", "listRsServlet");
 
         Tomcat.addServlet(rootCtx, "listUsersServlet", new ListUsersServlet());
-        rootCtx.addServletMapping("/listUsers", "listUsersServlet");
+        rootCtx.addServletMappingDecoded("/listUsers", "listUsersServlet");
 
         Wrapper defaultServlet = rootCtx.createWrapper();
         defaultServlet.setName("default");
@@ -62,7 +62,7 @@ public class TomcatEmbeddedRunner {
 
         /*Add welcome page*/
         rootCtx.addChild(defaultServlet);
-        rootCtx.addServletMapping("/", "default");
+        rootCtx.addServletMappingDecoded("/", "default");
         rootCtx.addWelcomeFile("init.html");
 
         tomcat.start();
